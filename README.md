@@ -5,8 +5,8 @@
 |name|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false, unique: true|
-|message_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreing_key: true|
+|message_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreing_key: true|
 
 ### Association
 - has_many :messages
@@ -30,8 +30,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -44,10 +44,8 @@
 |------|----|-------|
 |body|text||
 |image|string||
-|created_at|datetype||
-|updated_at|datetype||
-|user_id|integer|null: false, foreign_key|
-|group_id|integer|null: false, foreign_key|
+|user_id|references|null: false, foreign_key|
+|group_id|references|null: false, foreign_key|
 
 ### Association
 
