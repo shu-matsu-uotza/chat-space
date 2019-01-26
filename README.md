@@ -1,9 +1,3 @@
-# README
-
-* Ruby version: 2.3.1
-
-* Database creation
-
 ## usersテーブル
 
 |Column|Type|Options|
@@ -16,17 +10,20 @@
 
 ### Association
 - has_many :messages
-- has_many :menmbers
+- has_many :members
+- has_many :groups, through: :members
 
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
+|name|string|null: false|
 
 ### Association
+- has_many :messages
 - has_many :members
+- has_many :users, through: :members
 
 
 ## membersテーブル
@@ -45,8 +42,10 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
-|image|string|null: false|
+|body|text||
+|image|string||
+|created_at|datetype||
+|updated_at|datetype||
 |user_id|integer|null: false, foreign_key|
 |group_id|integer|null: false, foreign_key|
 
