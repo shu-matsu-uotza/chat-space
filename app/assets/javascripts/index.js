@@ -40,11 +40,11 @@ function appendNoUser(user) {
         });
       }
       else {
-        appendNoUser("一致するユーザーは見つかりませんでした")
+        appendNoUser("一致するユーザーは見つかりませんでした");
       }
     })
     .fail(function() {
-      alert('error');
+      alert('ユーザー検索に失敗しました');
     })
   });
 });
