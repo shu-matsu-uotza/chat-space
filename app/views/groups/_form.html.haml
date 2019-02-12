@@ -19,18 +19,16 @@
           #user-search-result
             - group.users.each do |user|
               .chat-group-user.clearfix
-                = user.name
+                %p.chat-group-user__name= "#{user.name}"
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
-    .chat-group-form__field--right
+    .chat-group-form__field--right{:id => 'chat-group-user-add'}
       - group.users.each do |user|
-        .chat-group-user.clearfix
-          = user.name
-          .user-search-add.chat-group-user__btn.chat-group-user__btn--delete{:data-user-id => "ユーザーのid", :data-user-name => "ユーザー名"}
-            削除
-  .chat-group-form__field.clearfix
-    .chat-group-form__field--left
-    .chat-group-form__field--right
-      / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+        .chat-group-user.clearfix.js-chat-member{:id => 'chat-group-user-8'}
+          %input{:name => 'group[user_ids][]', :type => 'hidden', :value => 'ユーザーのid'}
+            %p.chat-group-user__name= "#{user.name}"
+            %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+              削除
+
       = f.submit class: 'chat-group-form__action-btn'
