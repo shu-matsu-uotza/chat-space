@@ -32,6 +32,7 @@ function appendNewUser(val) {
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
               </div>`
   add_member.append(html);
+  search_list.remove(html);
 }
 
   $("#user-search-field").on("keyup", function() {
@@ -64,6 +65,10 @@ function appendNewUser(val) {
     var user = $('.user-search-add');
     var val = user.attr('data-user-name');
     appendNewUser(val);
+  });
+
+  $(document).on("click", ".user-search-remove", function(){
+    $('#chat-group-user-8').remove();
   });
 
 });
