@@ -23,11 +23,11 @@ function appendNoUser(user) {
   search_list.append(html);
 }
 
-function appendNewUser(val) {
+function appendNewUser(user, id) {
   var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-                <input name='group[user_ids][]' type='hidden' value='${ val.id }'>
+                <input name='group[user_ids][]' type='hidden' value='${ id }'>
                 <p class='chat-group-user__name'>
-                  ${ val }
+                  ${ user }
                 </p>
                 <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
               </div>`
@@ -62,9 +62,10 @@ function appendNewUser(val) {
   });
 
   $(document).on("click", ".user-search-add", function(){
-    var user = $('.user-search-add');
-    var val = user.attr('data-user-name');
-    appendNewUser(val);
+    var users = $('.user-search-add');
+    var user = users.attr('data-user-name');
+    var id = users.attr('data-user-id');
+    appendNewUser(user, id);
   });
 
   $(document).on("click", ".user-search-remove", function(){
